@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"nome": "Circuito Teste"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.633308, -23.55052]
+      }
+    }
+  ]
+}

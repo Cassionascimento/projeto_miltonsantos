@@ -1,0 +1,107 @@
+2025-06-15 19:27:24,654 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-15 19:27:24,664 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-15 19:27:24,665 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-15 19:27:24,812 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.10:5000
+2025-06-15 19:27:24,812 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-15 19:27:24,816 - werkzeug - INFO -  * Restarting with stat
+2025-06-15 19:27:25,999 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-15 19:27:26,001 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-15 19:27:26,002 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-15 19:27:26,030 - werkzeug - WARNING -  * Debugger is active!
+2025-06-15 19:27:26,037 - werkzeug - INFO -  * Debugger PIN: 139-562-039
+2025-06-15 19:27:40,848 - werkzeug - INFO - 192.168.0.10 - - [15/Jun/2025 19:27:40] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:27:40,994 - werkzeug - INFO - 192.168.0.10 - - [15/Jun/2025 19:27:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-15 19:27:44,546 - werkzeug - INFO - 192.168.0.10 - - [15/Jun/2025 19:27:44] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:27:45,457 - werkzeug - INFO - 192.168.0.10 - - [15/Jun/2025 19:27:45] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:38:34,695 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 19:38:34] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:38:34,739 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 19:38:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-15 19:38:36,554 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 19:38:36] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:38:37,210 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 19:38:37] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:38:41,822 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 19:38:41] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 19:48:52,340 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 19:48:52] "[35m[1mGET /api/circuitos HTTP/1.1[0m" 503 -
+2025-06-15 19:52:29,618 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-15 19:52:29,620 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-15 19:52:29,621 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-15 19:52:29,720 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.10:5000
+2025-06-15 19:52:29,721 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-15 19:52:29,723 - werkzeug - INFO -  * Restarting with stat
+2025-06-15 19:52:30,942 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-15 19:52:30,945 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-15 19:52:30,946 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-15 19:52:30,979 - werkzeug - WARNING -  * Debugger is active!
+2025-06-15 19:52:30,990 - werkzeug - INFO -  * Debugger PIN: 139-562-039
+2025-06-15 20:07:25,380 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:07:25] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 20:07:27,743 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:07:27] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 20:07:28,550 - werkzeug - INFO - 127.0.0.1 - - [15/Jun/2025 20:07:28] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-17 13:40:17,876 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-17 13:40:17,885 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-17 13:40:17,887 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-17 13:40:18,069 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.10:5000
+2025-06-17 13:40:18,069 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-17 13:40:18,072 - werkzeug - INFO -  * Restarting with stat
+2025-06-17 13:40:19,333 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-17 13:40:19,336 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-17 13:40:19,337 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-17 13:40:19,382 - werkzeug - WARNING -  * Debugger is active!
+2025-06-17 13:40:19,388 - werkzeug - INFO -  * Debugger PIN: 139-562-039
+2025-06-17 13:43:44,168 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Benício\\projeto-milton-santos\\backend\\app.py', reloading
+2025-06-17 13:43:44,366 - werkzeug - INFO -  * Restarting with stat
+2025-06-17 13:45:31,243 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-17 13:45:31,245 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-17 13:45:31,246 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-17 13:45:31,316 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.10:5000
+2025-06-17 13:45:31,316 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-17 13:45:31,318 - werkzeug - INFO -  * Restarting with stat
+2025-06-17 13:45:32,651 - root - ERROR - Erro ao carregar data\geojson\circuitos_faria_lima.geojson: data\geojson\circuitos_faria_lima.geojson: No such file or directory
+2025-06-17 13:45:32,654 - root - ERROR - Erro ao carregar data\csv\wifi_livre_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\wifi_livre_sp.csv'
+2025-06-17 13:45:32,655 - root - ERROR - Erro ao carregar data\csv\telecentros_sp.csv: [Errno 2] No such file or directory: 'data\\csv\\telecentros_sp.csv'
+2025-06-17 13:45:32,689 - werkzeug - WARNING -  * Debugger is active!
+2025-06-17 13:45:32,700 - werkzeug - INFO -  * Debugger PIN: 139-562-039
+2025-06-17 13:45:52,411 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:52] "GET / HTTP/1.1" 200 -
+2025-06-17 13:45:54,026 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:54] "[35m[1mGET /api/circuitos HTTP/1.1[0m" 503 -
+2025-06-17 13:45:54,135 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:54] "GET /api/dados-telecentro HTTP/1.1" 200 -
+2025-06-17 13:45:54,136 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:54] "GET /api/dados-wifi HTTP/1.1" 200 -
+2025-06-17 13:45:54,138 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:54] "GET /api/analise-espacial HTTP/1.1" 200 -
+2025-06-17 13:45:54,152 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:54] "GET /api/dados-renda HTTP/1.1" 200 -
+2025-06-17 13:45:54,153 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 13:45:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-17 14:02:52,455 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:52] "GET / HTTP/1.1" 200 -
+2025-06-17 14:02:52,489 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:52] "[33mGET /static/images/milton1.webp HTTP/1.1[0m" 404 -
+2025-06-17 14:02:53,011 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:53] "[35m[1mGET /api/circuitos HTTP/1.1[0m" 503 -
+2025-06-17 14:02:53,033 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:53] "GET /api/dados-wifi HTTP/1.1" 200 -
+2025-06-17 14:02:53,044 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:53] "GET /api/dados-telecentro HTTP/1.1" 200 -
+2025-06-17 14:02:53,081 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:53] "GET /api/analise-espacial HTTP/1.1" 200 -
+2025-06-17 14:02:53,138 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:53] "GET /api/dados-renda HTTP/1.1" 200 -
+2025-06-17 14:02:56,203 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "GET / HTTP/1.1" 200 -
+2025-06-17 14:02:56,227 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "[33mGET /static/images/milton1.webp HTTP/1.1[0m" 404 -
+2025-06-17 14:02:56,432 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "[35m[1mGET /api/circuitos HTTP/1.1[0m" 503 -
+2025-06-17 14:02:56,462 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "GET /api/dados-wifi HTTP/1.1" 200 -
+2025-06-17 14:02:56,469 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "GET /api/dados-telecentro HTTP/1.1" 200 -
+2025-06-17 14:02:56,578 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "GET /api/analise-espacial HTTP/1.1" 200 -
+2025-06-17 14:02:56,583 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:02:56] "GET /api/dados-renda HTTP/1.1" 200 -
+2025-06-17 14:04:50,419 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "GET / HTTP/1.1" 200 -
+2025-06-17 14:04:50,592 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "GET /static/images/milton1.webp HTTP/1.1" 200 -
+2025-06-17 14:04:50,617 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "[35m[1mGET /api/circuitos HTTP/1.1[0m" 503 -
+2025-06-17 14:04:50,679 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "GET /api/dados-wifi HTTP/1.1" 200 -
+2025-06-17 14:04:50,682 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "GET /api/dados-telecentro HTTP/1.1" 200 -
+2025-06-17 14:04:50,691 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "GET /api/analise-espacial HTTP/1.1" 200 -
+2025-06-17 14:04:50,710 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:04:50] "GET /api/dados-renda HTTP/1.1" 200 -
+2025-06-17 14:26:32,140 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:26:32] "GET /api/dados-telecentro HTTP/1.1" 200 -
+2025-06-17 14:26:32,144 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:26:32] "GET /api/dados-wifi HTTP/1.1" 200 -
+2025-06-17 14:26:32,152 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:26:32] "GET /api/analise-espacial HTTP/1.1" 200 -
+2025-06-17 14:26:32,160 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:26:32] "GET /api/dados-renda HTTP/1.1" 200 -
+2025-06-17 14:45:13,087 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:45:13] "GET /api/dados-telecentro HTTP/1.1" 200 -
+2025-06-17 14:45:13,091 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:45:13] "GET /api/dados-wifi HTTP/1.1" 200 -
+2025-06-17 14:45:13,097 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:45:13] "GET /api/analise-espacial HTTP/1.1" 200 -
+2025-06-17 14:45:13,103 - werkzeug - INFO - 127.0.0.1 - - [17/Jun/2025 14:45:13] "GET /api/dados-renda HTTP/1.1" 200 -

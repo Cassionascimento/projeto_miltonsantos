@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Circuito Superior",
+        "circuito": "superior",
+        "renda": 3500,
+        "tipo_imovel": "apartamento",
+        "fluxo": "fixo"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-46.64, -23.55],
+            [-46.63, -23.55],
+            [-46.63, -23.54],
+            [-46.64, -23.54],
+            [-46.64, -23.55]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Circuito Inferior",
+        "circuito": "inferior",
+        "renda": 1500,
+        "tipo_imovel": "casa",
+        "fluxo": "temporario"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-46.62, -23.56],
+            [-46.61, -23.56],
+            [-46.61, -23.55],
+            [-46.62, -23.55],
+            [-46.62, -23.56]
+          ]
+        ]
+      }
+    }
+  ]
+}

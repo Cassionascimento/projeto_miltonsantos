@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>100 Anos de Milton Santos: Circuitos Econômicos</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Leaflet CSS & JS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    crossorigin=""
+  />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    header h1 {
+      font-weight: 700;
+      color: #0d6efd;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #6c757d;
+    }
+
+    .bio-section img {
+      max-width: 180px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    .bio-section {
+      background: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav#main-nav {
+      background: #0d6efd;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    nav#main-nav a {
+      color: white;
+      font-weight: 600;
+      margin-right: 1.5rem;
+      text-decoration: none;
+    }
+
+    nav#main-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    #map-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .map-wrapper {
+      flex: 1 1 480px;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+
+    .map-wrapper h3 {
+      margin-bottom: 0.5rem;
+      color: #0d6efd;
+      font-weight: 600;
+    }
+
+    #map-superior, #map-inferior {
+      height: 400px;
+      border-radius: 0.5rem;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .btn-toggle-maps {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-toggle-maps button {
+      min-width: 150px;
+    }
+
+    .loading {
+      text-align: center;
+      color: #6c757d;
+      font-style: italic;
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    
+    /* Novos estilos para introdução e índice */
+    .intro-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .intro-section h2 {
+      color: #0d6efd;
+      margin-bottom: 1.5rem;
+    }
+    
+    .index-section {
+      background: #f1f8ff;
+      padding: 1.5rem 2rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid #0d6efd;
+    }
+    
+    .index-section h3 {
+      color: #0a58ca;
+      margin-bottom: 1rem;
+    }
+    
+    .index-section ul {
+      padding-left: 1.5rem;
+    }
+    
+    .index-section li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .transition-paragraph {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #6c757d;
+      font-style: italic;
+    }
+    
+    .highlight-box {
+      background: #e7f1ff;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #0d6efd;
+    }
+    
+    .highlight-box h4 {
+      color: #0a58ca;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="mb-4 text-center">
+      <h1>100 Anos de Milton Santos: Circuitos Econômicos</h1>
+      <p>Análise espacial crítica dos circuitos superior e inferior na região da Faria Lima</p>
+    </header>
+
+    <!-- Navegação interna -->
+    <nav id="main-nav" aria-label="Navegação principal do site">
+      <a href="#introducao">Introdução</a>
+      <a href="#indice">Índice</a>
+      <a href="#biografia">Biografia</a>
+      <a href="#mapas">Mapas</a>
+      <a href="#graficos">Gráficos</a>
+      <a href="#tabelas">Tabelas</a>
+      <a href="#sobre">Sobre o Projeto</a>
+    </nav>
+
+    <!-- Introdução -->
+    <section id="introducao" class="intro-section" tabindex="0" aria-label="Introdução ao estudo">
+      <h2>O Espaço em Disputa e o Caso da Faria Lima</h2>
+      <p>O espaço é, ao mesmo tempo, produto e condição da ação humana. A paisagem, marcada pelas rugosidades do passado, encontra-se em constante transformação pela técnica, mediação entre o homem e o mundo. Segundo Milton Santos, a geografia é a filosofia das técnicas — e é com essa chave de leitura que analisamos a região da Avenida Faria Lima, em São Paulo, como uma síntese contemporânea de disputas sociais, econômicas e simbólicas no Brasil.</p>
+      
+      <p>A Faria Lima se apresenta como uma representação viva da globalização perversa, na qual a técnica e a informação são apropriadas de forma desigual, acentuando a fragmentação territorial e social. Ainda assim, nela pulsa a possibilidade de outras globalizações, pois o espaço está sempre em disputa.</p>
+      
+      <div class="highlight-box">
+        <h4>A Faria Lima hoje: síntese do espaço globalizado</h4>
+        <ul>
+          <li><strong>Centro Financeiro Alternativo:</strong> Sede de grandes bancos como BTG Pactual e XP Investimentos, concentrando mais de 20% dos ativos financeiros do Brasil.</li>
+          <li><strong>Vale do Silício Brasileiro:</strong> Maior polo de startups do país, com empresas como Nubank e QuintoAndar, recebendo US$ 3,5 bilhões em investimentos em 2022.</li>
+          <li><strong>Presença Global:</strong> Escritórios de Google, Meta, Amazon e Microsoft, além de fundos internacionais como SoftBank e Sequoia.</li>
+          <li><strong>Mão de obra qualificada:</strong> Maior densidade de profissionais de TI e finanças do país, com salários até 3x acima da média nacional.</li>
+          <li><strong>Infraestrutura de Inovação:</strong> Abriga o Cubo Itaú (maior hub de fintechs da América Latina) e a Estação Hack.</li>
+          <li><strong>Movimento Econômico:</strong> Representa 5% do PIB nacional, funcionando como território de comando e circulação de capital.</li>
+        </ul>
+      </div>
+      
+      <p>Neste trabalho, proponho olhar para a Faria Lima como objeto geográfico total — um lugar onde se entrelaçam fluxos financeiros, tecnologias de ponta, subjetividades aceleradas e desigualdades profundas. É uma das expressões mais intensas da globalização no Brasil e, por isso, precisa ser analisada à luz da geografia crítica, com base no pensamento de Milton Santos.</p>
+    </section>
+
+    <!-- Índice Temático -->
+    <section id="indice" class="index-section" tabindex="0" aria-label="Índice temático do estudo">
+      <h3>Índice Temático</h3>
+      <ul>
+        <li><strong>Introdução</strong>
+          <ul>
+            <li>A geografia como filosofia das técnicas</li>
+            <li>O espaço em disputa: política, técnica e paisagem</li>
+            <li>A Faria Lima como síntese da globalização perversa e possibilidade de resistência</li>
+          </ul>
+        </li>
+        <li><strong>Capítulo 1 – A Faria Lima como Objeto Geográfico</strong>
+          <ul>
+            <li>Centro Financeiro Alternativo</li>
+            <li>Vale do Silício Brasileiro</li>
+            <li>Inserção nos fluxos globais</li>
+            <li>Infraestrutura e lógica territorial</li>
+            <li>Movimento econômico e dinâmica territorial</li>
+          </ul>
+        </li>
+        <li><strong>Capítulo 2 – Técnica, Informação e Trabalho</strong>
+          <ul>
+            <li>A técnica como arma social: acesso desigual à mediação técnica</li>
+            <li>A informação como forma de poder e dominação</li>
+            <li>Trabalho e transformação da paisagem</li>
+            <li>O tempo do homem veloz e o tempo do homem lento</li>
+          </ul>
+        </li>
+        <li><strong>Capítulo 3 – Os Personagens do Espaço: Hierarquia e Função</strong>
+          <ul>
+            <li>Banqueiros e CFOs: elite do circuito superior da economia</li>
+            <li>CEOs e CTOs: agentes da inovação e da precarização</li>
+            <li>Analistas e Gerentes: entre o middle-office e o burnout</li>
+            <li>Office-boys e entregadores: sujeitos do circuito inferior e invisibilidade urbana</li>
+            <li>Interdependência entre ordens e funções</li>
+          </ul>
+        </li>
+        <li><strong>Capítulo 4 – Infraestrutura Invisível: Satélites, Dados e Conectividade</strong>
+          <ul>
+            <li>Satélites de telecomunicação e sua função na financeirização</li>
+            <li>Constelações LEO e o papel da latência nos fluxos de capital</li>
+            <li>Bancos, fintechs e o uso estratégico dos dados espaciais</li>
+            <li>O espaço técnico como invisível e central</li>
+          </ul>
+        </li>
+        <li><strong>Capítulo 5 – A Possibilidade de Outra Globalização</strong>
+          <ul>
+            <li>Fragmentação territorial e exclusão social</li>
+            <li>O uso progressivo da técnica: possibilidade para os "homens lentos"</li>
+            <li>Educação, ciência e novas formas de apropriação do espaço</li>
+            <li>O legado de Milton Santos para repensar o urbano</li>
+          </ul>
+        </li>
+        <li><strong>Conclusão</strong>
+          <ul>
+            <li>Por que a Faria Lima importa para a geografia crítica</li>
+            <li>Espaço, técnica e trabalho como categorias inseparáveis</li>
+            <li>A geografia como linguagem da transformação</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Transição para Biografia -->
+    <div class="transition-paragraph">
+      <p>Compreender a Faria Lima apenas como um espaço de sucesso financeiro e inovação tecnológica é não apenas ingênuo, mas insuficiente. Trata-se de um território marcado por tensões e desigualdades, onde diferentes agentes e formas de uso do espaço se entrelaçam. A partir de agora, analisaremos essa região como um objeto geográfico completo: sua estrutura, funções, fluxos, paisagem e contradições, buscando, à luz da geografia crítica, desvelar os mecanismos técnicos e sociais que ali operam.</p>
+    </div>
+
+    <!-- Biografia Milton Santos -->
+    <section id="biografia" class="bio-section" tabindex="0" aria-label="Biografia resumida de Milton Santos">
+      <img src="{{ url_for('static', filename='images/milton1.webp')}}" alt="Foto de Milton Santos" />
+      <div>
+        <h2>Milton Santos (1926–2001)</h2>
+        <p>
+          Milton Santos foi um dos mais importantes geógrafos brasileiros, reconhecido internacionalmente por suas análises críticas sobre urbanização, globalização e desigualdade espacial. Sua obra pioneira abriu caminhos para compreender a dinâmica econômica e social do Brasil e do mundo, destacando a importância dos circuitos econômicos e das redes espaciais.
+        </p>
+        <p>
+          Este projeto celebra seus 100 anos de nascimento, focando na análise dos circuitos econômico-espaciais da região da Faria Lima, refletindo suas ideias sobre as desigualdades e a complexidade territorial.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mapas separados -->
+    <section id="mapas" aria-label="Mapas dos circuitos econômico-espaciais">
+      <h2 class="section-title">Mapas dos Circuitos Econômicos</h2>
+      
+      <!-- Transição para Mapas -->
+      <div class="transition-paragraph">
+        <p>Entendida como mediação entre o homem e a paisagem, a técnica torna-se central para compreender as novas formas de trabalho e organização espacial na Faria Lima. Seja no algoritmo que define investimentos em milissegundos, seja no aplicativo que aciona um office-boy terceirizado, a técnica organiza fluxos, regula ritmos e redefine as funções urbanas. A seguir, analisaremos como essas tecnologias interferem na produção do espaço e na vida dos sujeitos.</p>
+      </div>
+      
+      <div class="btn-toggle-maps">
+        <button id="btn-superior" class="btn btn-primary" aria-pressed="true" aria-controls="map-superior">Circuito Superior</button>
+        <button id="btn-inferior" class="btn btn-outline-primary" aria-pressed="false" aria-controls="map-inferior">Circuito Inferior</button>
+        <button id="btn-ambos" class="btn btn-outline-secondary" aria-pressed="false" aria-controls="map-container">Ambos</button>
+      </div>
+
+      <div id="map-container">
+        <div class="map-wrapper" id="wrapper-superior" role="region" aria-label="Mapa do circuito superior">
+          <h3>Circuito Superior</h3>
+          <div id="map-superior"></div>
+        </div>
+        <div class="map-wrapper visually-hidden" id="wrapper-inferior" role="region" aria-label="Mapa do circuito inferior">
+          <h3>Circuito Inferior</h3>
+          <div id="map-inferior"></div>
+        </div>
+        <div class="map-wrapper visually-hidden" id="wrapper-ambos" role="region" aria-label="Mapa dos dois circuitos">
+          <h3>Ambos os Circuitos</h3>
+          <div id="map-ambos" style="height:400px; border-radius:0.5rem; box-shadow: inset 0 0 8px rgba(0,0,0,0.1);"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gráficos -->
+    <section id="graficos" aria-label="Gráficos de análise dos circuitos">
+      <h2 class="section-title">Evolução Temporal dos Circuitos Econômicos</h2>
+      
+      <!-- Transição para Gráficos -->
+      <div class="transition-paragraph">
+        <p>Se a técnica estrutura o espaço, são os sujeitos que o habitam, percorrem e utilizam que lhe dão forma. A Faria Lima é o palco de uma hierarquia funcional entre banqueiros, CEOs, programadores, entregadores e analistas — cada um com acesso diferenciado ao território, ao tempo e à técnica. A seguir, conheceremos esses personagens e suas funções no ecossistema urbano-financeiro da Faria Lima.</p>
+      </div>
+      
+      <div id="timeline-chart" style="width: 100%; height: 400px;"></div>
+
+      <h2 class="section-title mt-5">Distribuição de Renda</h2>
+      <div id="income-chart" style="width: 100%; height: 400px;"></div>
+    </section>
+
+    <!-- Tabelas -->
+    <section id="tabelas" aria-label="Tabelas de dados">
+      <h2 class="section-title">Desempenho e Uso WiFi Livre SP (2019-2025 Parcial)</h2>
+      
+      <!-- Transição para Tabelas -->
+      <div class="transition-paragraph">
+        <p>Por trás das fachadas de vidro e dos coworkings modernos da Faria Lima, existe uma infraestrutura técnica altamente sofisticada — e muitas vezes invisível — que sustenta a dinâmica desse território. Satélites geoestacionários, redes de baixa latência, estações de dados e sistemas globais de nuvem operam silenciosamente, conectando em tempo real a Faria Lima aos centros financeiros de Nova York, Londres e Cingapura. Esses sistemas, ainda que intangíveis, são parte fundamental do funcionamento do espaço e da produção da realidade urbana contemporânea.</p>
+      </div>
+      
+      <div id="wifi-table-container" class="loading">Carregando dados WiFi...</div>
+
+      <h2 class="section-title mt-5">Acessos Telecentros 2025</h2>
+      <div id="telecentro-table-container" class="loading">Carregando dados Telecentros...</div>
+    </section>
+
+    <!-- Sobre o projeto -->
+    <section id="sobre" aria-label="Informações sobre o projeto" class="mt-5">
+      <h2 class="section-title">Sobre o Projeto</h2>
+      
+      <!-- Transição Final -->
+      <div class="transition-paragraph">
+        <p>Diante da centralidade global da Faria Lima e da sofisticação de sua técnica, seria fácil concluir que o espaço urbano está condenado à lógica do capital. Mas Milton Santos nos oferece outra leitura: a de que toda técnica pode ser usada de forma progressiva, que todo espaço pode ser apropriado de modo mais justo, e que o tempo do "homem lento" — o trabalhador invisibilizado — também pode ter agência na produção do território.</p>
+      </div>
+      
+      <p>
+        Este projeto foi desenvolvido como homenagem aos 100 anos do geógrafo Milton Santos, aplicando seus conceitos sobre circuitos econômico-espaciais para análise da região da Faria Lima, em São Paulo. Os dados apresentados são provenientes de fontes oficiais, análises espaciais e pesquisa de campo.
+      </p>
+      <p>
+        O backend em Flask serve os dados geoespaciais e tabulares, enquanto o frontend apresenta uma experiência interativa, responsiva e acessível para facilitar a compreensão do usuário.
+      </p>
+      <p>
+        Desenvolvido por você, com apoio da inteligência artificial.
+      </p>
+      
+      <div class="highlight-box mt-4">
+        <h4>Conclusão: A Geografia como Linguagem da Transformação</h4>
+        <p>A Faria Lima, enquanto caso empírico e objeto simbólico, mostra como o espaço urbano pode concentrar os fluxos mais avançados da técnica e, ao mesmo tempo, os sinais mais profundos da desigualdade. Esse trabalho, escrito por um menino pobre do século XXI, é também uma resposta a um geógrafo que enxergou a cidade não como um dado, mas como uma construção social e histórica em disputa. Milton Santos ensinou que a geografia é, antes de tudo, um modo de ver — e este trabalho busca, modestamente, continuar esse olhar. Aqui, cada personagem, cada torre de vidro, cada entrega via aplicativo, cada byte de dados por satélite, é parte de um mesmo processo: o de produção do espaço. Que essa geografia também nos ajude a produzir justiça.</p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 - Projeto Milton Santos - Circuitos Econômicos
+    </footer>
+  </main>
+
+  <script>
+    // Armazenar layers e mapas Leaflet
+    let mapSuperior, mapInferior, mapAmbos;
+    let layerSuperior, layerInferior, layerAmbos;
+
+    const circuitoColors = {
+      superior: '#1f77b4',
+      inferior: '#ff7f0e',
+      ambos: '#2ca02c'
+    };
+
+    // Função para criar mapas básicos
+    function criarMapa(id, center = [-23.56, -46.7], zoom = 12) {
+      return L.map(id).setView(center, zoom);
+    }
+
+    // Inicializar mapas
+    function initMaps() {
+      mapSuperior = criarMapa('map-superior');
+      mapInferior = criarMapa('map-inferior');
+      mapAmbos = criarMapa('map-ambos');
+
+      // Tiles base OSM para todos
+      [mapSuperior, mapInferior, mapAmbos].forEach(map =>
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map)
+      );
+    }
+
+    // Função para carregar GeoJSON e filtrar por circuito
+    async function carregarCircuitosMapa() {
+      try {
+        const res = await fetch('/api/circuitos');
+        if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+        const data = await res.json();
+
+        // Filtrar features por circuito
+        const superiorFeatures = data.features.filter(f => (f.properties.circuito || '').toLowerCase() === 'superior');
+        const inferiorFeatures = data.features.filter(f => (f.properties.circuito || '').toLowerCase() === 'inferior');
+
+        // Criar layers para circuitos
+        layerSuperior = L.geoJSON({ type: 'FeatureCollection', features: superiorFeatures }, {
+          style: () => ({ color: circuitoColors.superior, fillOpacity: 0.6 }),
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties;
+            layer.bindPopup(`<strong>${p.nome || 'Sem nome'}</strong><br>Circuito: Superior<br>Renda média: ${p.renda_media || 'N/A'}`);
+          }
+        }).addTo(mapSuperior);
+
+        layerInferior = L.geoJSON({ type: 'FeatureCollection', features: inferiorFeatures }, {
+          style: () => ({ color: circuitoColors.inferior, fillOpacity: 0.6 }),
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties;
+            layer.bindPopup(`<strong>${p.nome || 'Sem nome'}</strong><br>Circuito: Inferior<br>Renda média: ${p.renda_media || 'N/A'}`);
+          }
+        }).addTo(mapInferior);
+
+        layerAmbos = L.geoJSON(data, {
+          style: feature => {
+            const c = (feature.properties.circuito || '').toLowerCase();
+            const color = c === 'superior' ? circuitoColors.superior : c === 'inferior' ? circuitoColors.inferior : '#999';
+            return { color, fillOpacity: 0.6 };
+          },
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties;
+            layer.bindPopup(`<strong>${p.nome || 'Sem nome'}</strong><br>Circuito: ${p.circuito || 'N/A'}<br>Renda média: ${p.renda_media || 'N/A'}`);
+          }
+        }).addTo(mapAmbos);
+
+        // Ajustar zoom para cada mapa
+        mapSuperior.fitBounds(layerSuperior.getBounds());
+        mapInferior.fitBounds(layerInferior.getBounds());
+        mapAmbos.fitBounds(layerAmbos.getBounds());
+
+      } catch (error) {
+        console.error('Erro ao carregar circuitos:', error);
+      }
+    }
+
+    // Mostrar/Esconder mapas por botão
+    function configurarBotoesMapa() {
+      const btnSup = document.getElementById('btn-superior');
+      const btnInf = document.getElementById('btn-inferior');
+      const btnAmbos = document.getElementById('btn-ambos');
+
+      const wrapperSup = document.getElementById('wrapper-superior');
+      const wrapperInf = document.getElementById('wrapper-inferior');
+      const wrapperAmbos = document.getElementById('wrapper-ambos');
+
+      function resetBtns() {
+        btnSup.classList.remove('btn-primary');
+        btnSup.classList.add('btn-outline-primary');
+        btnSup.setAttribute('aria-pressed', 'false');
+
+        btnInf.classList.remove('btn-primary');
+        btnInf.classList.add('btn-outline-primary');
+        btnInf.setAttribute('aria-pressed', 'false');
+
+        btnAmbos.classList.remove('btn-secondary');
+        btnAmbos.classList.add('btn-outline-secondary');
+        btnAmbos.setAttribute('aria-pressed', 'false');
+      }
+
+      btnSup.addEventListener('click', () => {
+        resetBtns();
+        btnSup.classList.add('btn-primary');
+        btnSup.setAttribute('aria-pressed', 'true');
+
+        wrapperSup.classList.remove('visually-hidden');
+        wrapperInf.classList.add('visually-hidden');
+        wrapperAmbos.classList.add('visually-hidden');
+
+        mapSuperior.invalidateSize();
+      });
+
+      btnInf.addEventListener('click', () => {
+        resetBtns();
+        btnInf.classList.add('btn-primary');
+        btnInf.setAttribute('aria-pressed', 'true');
+
+        wrapperSup.classList.add('visually-hidden');
+        wrapperInf.classList.remove('visually-hidden');
+        wrapperAmbos.classList.add('visually-hidden');
+
+        mapInferior.invalidateSize();
+      });
+
+      btnAmbos.addEventListener('click', () => {
+        resetBtns();
+        btnAmbos.classList.add('btn-secondary');
+        btnAmbos.setAttribute('aria-pressed', 'true');
+
+        wrapperSup.classList.add('visually-hidden');
+        wrapperInf.classList.add('visually-hidden');
+        wrapperAmbos.classList.remove('visually-hidden');
+
+        mapAmbos.invalidateSize();
+      });
+    }
+
+    // Montar tabela genérica (reaproveitando código anterior)
+    function montarTabela(containerId, dados) {
+      if (!dados || !dados.length) {
+        document.getElementById(containerId).innerHTML = '<p class="text-center text-muted">Nenhum dado disponível.</p>';
+        return;
+      }
+
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+
+      const table = document.createElement('table');
+      table.classList.add('table', 'table-striped', 'table-hover', 'table-bordered');
+
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+
+      const chaves = Object.keys(dados[0]);
+      const trHead = document.createElement('tr');
+      chaves.forEach(chave => {
+        const th = document.createElement('th');
+        th.textContent = chave.charAt(0).toUpperCase() + chave.slice(1).replace(/_/g, ' ');
+        trHead.appendChild(th);
+      });
+      thead.appendChild(trHead);
+      table.appendChild(thead);
+
+      dados.forEach(item => {
+        const tr = document.createElement('tr');
+        chaves.forEach(chave => {
+          const td = document.createElement('td');
+          td.textContent = item[chave];
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+
+      container.appendChild(table);
+    }
+
+    async function carregarTabelaWiFi() {
+      try {
+        const res = await fetch('/api/dados-wifi');
+        if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+        const dados = await res.json();
+        montarTabela('wifi-table-container', dados);
+      } catch (error) {
+        document.getElementById('wifi-table-container').innerHTML = `<p class="error-message">Erro ao carregar dados WiFi: ${error.message}</p>`;
+        console.error('Erro ao carregar dados WiFi:', error);
+      }
+    }
+
+    async function carregarTabelaTelecentro() {
+      try {
+        const res = await fetch('/api/dados-telecentro');
+        if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+        const dados = await res.json();
+        montarTabela('telecentro-table-container', dados);
+      } catch (error) {
+        document.getElementById('telecentro-table-container').innerHTML = `<p class="error-message">Erro ao carregar dados Telecentro: ${error.message}</p>`;
+        console.error('Erro ao carregar dados Telecentro:', error);
+      }
+    }
+
+    async function desenharGraficoTimeline() {
+      try {
+        const res = await fetch('/api/analise-espacial');
+        if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+        const dados = await res.json();
+
+        // Exemplo: supondo dados no formato esperado
+        let anos = [];
+        let sup = [];
+        let inf = [];
+
+        if (Array.isArray(dados)) {
+          anos = dados.map(d => d.ano);
+          sup = dados.map(d => d.circuito_superior);
+          inf = dados.map(d => d.circuito_inferior);
+        }
+
+        // Fallback de dados fictícios
+        if (!anos.length) {
+          anos = [2019, 2020, 2021, 2022, 2023];
+          sup = [10, 12, 15, 14, 18];
+          inf = [5, 6, 7, 6, 5];
+        }
+
+        const traceSup = {
+          x: anos,
+          y: sup,
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Circuito Superior',
+          line: { color: circuitoColors.superior }
+        };
+
+        const traceInf = {
+          x: anos,
+          y: inf,
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Circuito Inferior',
+          line: { color: circuitoColors.inferior }
+        };
+
+        const layout = {
+          title: 'Evolução temporal dos circuitos',
+          xaxis: { title: 'Ano' },
+          yaxis: { title: 'Valores' },
+          legend: { orientation: 'h' }
+        };
+
+        Plotly.newPlot('timeline-chart', [traceSup, traceInf], layout);
+      } catch (error) {
+        console.error('Erro ao desenhar gráfico timeline:', error);
+      }
+    }
+
+    async function desenharGraficoRenda() {
+      try {
+        const res = await fetch('/api/dados-renda');
+        if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+        const dados = await res.json();
+
+        if (!dados || !dados.length) return;
+
+        // Exemplo simples de gráfico de barras
+        const categorias = dados.map(d => d.categoria);
+        const valores = dados.map(d => d.valor);
+
+        const trace = {
+          x: categorias,
+          y: valores,
+          type: 'bar',
+          marker: { color: '#0d6efd' }
+        };
+
+        const layout = {
+          title: 'Distribuição de Renda por Categoria',
+          xaxis: { title: 'Categoria' },
+          yaxis: { title: 'Valor' }
+        };
+
+        Plotly.newPlot('income-chart', [trace], layout);
+      } catch (error) {
+        console.error('Erro ao desenhar gráfico de renda:', error);
+      }
+    }
+
+    // Inicialização completa
+    window.onload = async () => {
+      initMaps();
+      await carregarCircuitosMapa();
+      configurarBotoesMapa();
+      carregarTabelaWiFi();
+      carregarTabelaTelecentro();
+      desenharGraficoTimeline();
+      desenharGraficoRenda();
+    };
+  </script>
+
+  <!-- Bootstrap JS Bundle (Popper + JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
