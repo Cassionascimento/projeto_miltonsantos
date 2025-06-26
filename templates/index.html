@@ -83,15 +83,7 @@
 
       <p class="mt-4">O que Milton Santos pensaria a respeito da Faria Lima moderna?</p>
 
-      <section class="mt-8">
-        <h2 class="text-xl font-semibold mb-2">Raspagem Diplomática</h2>
-        <p class="mb-4 text-gray-700">Explore temas como paz, meio ambiente, tecnologia e relações internacionais.</p>
-        <button onclick="carregarRelatorios()"
-          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-          Ver Dados Raspados
-        </button>
-        <div id="resultado" class="mt-4"></div>
-      </section>
+
     </header>
   </main>
 
@@ -100,22 +92,6 @@
 </head>
 
 <body>
-  <p>Notícias</p>
-
-  <div style="display: flex; gap: 2rem;">
-    <!-- Filtros laterais -->
-    <aside class="sidebar-filtros">
-      <button onclick="filtrar('todos')">🌐 Todos</button>
-      <button onclick="filtrar('Faria Lima')">🏙️ Faria Lima</button>
-      <button onclick="filtrar('Hudson Yards')">🗽 Hudson Yards</button>
-      <button onclick="filtrar('Lujiazui')">🌉 Lujiazui</button>
-    </aside>
-
-    <!-- Cards -->
-    <div class="cards-container" id="cards-container"></div>
-  </div>
-
-  <div class="cards-container" id="cards-container"></div>
 
   <script>
     const dadosMock = [
@@ -282,7 +258,7 @@
 
       <!-- Sumário (à esquerda) -->
       <div class="md:w-2/3 bg-white rounded-xl shadow-md p-6" id="sumario">
-                <h1 class="text-3xl font-bold text-gray-900 mb-8">Sumário</h1>
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Sumário</h1>
 
         <div class="space-y-6">
           <div>
@@ -805,20 +781,7 @@
   </section>
 
   <section class="px-6 py-10 max-w-7xl mx-auto">
-    <!-- Mapa -->
-    <div class="mb-12">
-      <div class="mb-4 text-center">
-        <button id="btn-superior" class="btn btn-primary" aria-pressed="true" aria-controls="map-superior">
-          Mapa da Região
-        </button>
-      </div>
-      <div id="map-container">
-        <div id="wrapper-superior" role="region" aria-label="Mapa do circuito superior">
-          <h2 class="text-2xl font-semibold text-center mb-4">Mapa da Região</h2>
-          <div id="map-superior"></div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Gráficos -->
     <section id="graficos" aria-label="Gráficos de análise dos circuitos" class="space-y-12">
