@@ -1,132 +1,37 @@
+from datetime import date
+from decimal import Decimal
 from flask import Flask, jsonify, render_template, request, send_from_directory
 from flask_cors import CORS
+import pandas as pd
 import requests
 from werkzeug.utils import secure_filename
 import json
 import os
 import requests
 from bs4 import BeautifulSoup
-
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sistema.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Inicializa o SQLAlchemy
+db = SQLAlchemy(app)
 CORS(app)
 
-# ===================== CONFIGURAÇÕES DE UPLOAD =====================
-UPLOAD_FOLDER = 'backend/uploads'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+class PrecoM2(db.Model): 
+    id= db.Column(db.Integer, primary_key=True)
+    data= db.Column(db.Date, nullable=False)
+    valor= db.Column(db.Numeric(10,2), nullable=False)
+    cidade= db.Column(db.String, nullable=False)
 
-# Cria pasta se não existir
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
-
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-# ===================== ROTAS DE IMAGENS ============================
-
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    if 'file' not in request.files:
-        return jsonify({'error': 'Nenhum arquivo enviado'}), 400
-
-    file = request.files['file']
-
-    if file.filename == '':
-        return jsonify({'error': 'Nenhum arquivo selecionado'}), 400
-
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return jsonify({'message': 'Arquivo enviado com sucesso', 'filename': filename}), 200
-    else:
-        return jsonify({'error': 'Tipo de arquivo não permitido'}), 400
-
-@app.route('/photos/<filename>')
-def get_photo(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
-@app.route('/photos')
-def list_photos():
-    photos = []
-    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
-        if allowed_file(filename):
-            photos.append({
-                'name': filename,
-                'url': f'/photos/{filename}'
-            })
-    return jsonify({'photos': photos})
-
-@app.route('/photos/<filename>', methods=['DELETE'])
-def delete_photo(filename):
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        return jsonify({'message': 'Foto deletada com sucesso'}), 200
-    else:
-        return jsonify({'error': 'Arquivo não encontrado'}), 404
-
-# ===================== ROTAS DE DADOS ==============================
-
-@app.route('/api/circuitos')
-def get_circuitos():
-    try:
-        with open('backend/assets/circuitos.geojson', 'r', encoding='utf-8') as f:
-            geojson_data = json.load(f)
-
-        filtro_circuito = request.args.get('circuito')
-        if filtro_circuito:
-            geojson_data['features'] = [
-                f for f in geojson_data['features']
-                if f['properties'].get('circuito') == filtro_circuito
-            ]
-
-        periferia = request.args.get('periferia')
-        if periferia == 'true':
-            geojson_data['features'] = [
-                f for f in geojson_data['features']
-                if f['properties'].get('periferia') is True
-            ]
-
-        return jsonify(geojson_data)
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-@app.route('/api/renda')
-def get_renda():
-    renda_data = [
-        {"classe": "0-1 SM", "valor": 50},
-        {"classe": "1-3 SM", "valor": 30},
-        {"classe": "3+ SM", "valor": 20},
-    ]
-    return jsonify(renda_data)
-
-@app.route('/api/nlp', methods=['POST'])
-def nlp():
-    data = request.json
-    prompt = data.get('prompt', '')
-    if not prompt:
-        return jsonify({'error': 'Prompt não fornecido'}), 400
-
-    try:
-        import openai
-        response = openai.Completion.create(
-            engine='text-davinci-003',
-            prompt=prompt,
-            max_tokens=150,
-            temperature=0.7
-        )
-        result = response.choices[0].text.strip()
-        return jsonify({'result': result})
-
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
 
 @app.route('/')
 def homepage():
-    return render_template('index.html')
+    variacoes=PrecoM2.query.all()
+    return render_template('index.html',variacoes=variacoes)
 
 @app.route('/api/dados_completos')
 def dados_completos():
@@ -248,11 +153,29 @@ def raspagem_cfr():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
-
-
+@app.route("/db")
+def banco():
+    caminho = os.path.join(app.root_path,"static/files", "csvm2SP.xls")
+    df=pd.read_excel(caminho)    
+    for _,linha in df.iterrows():
+        ano_str, mes_str = str(linha['data']).split(".")
+        ano = int(ano_str)
+        mes = int(mes_str)
+        data = date(ano, mes, 1)
+        preco= PrecoM2(
+            cidade= "São Paulo", 
+            data=data,
+            valor= Decimal(linha["valor"])
+        )
+        db.session.add(preco)
+    
+    db.session.commit()
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
+
 
 
 
