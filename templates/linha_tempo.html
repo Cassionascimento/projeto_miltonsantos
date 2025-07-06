@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linha do Tempo - Centenário de Milton Santos</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tippy.js Core -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+</head>
+
+<script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+
+<body>
+
+    </script>
+
+
+
+    <!-- Mapas separados -->
+    <section id="mapas" aria-label="Mapas dos circuitos econômico-espaciais" class="px-4 max-w-6xl mx-auto mt-16">
+
+        <!-- Introdução -->
+        <section id="espaco-faria-lima" class="mt-16 px-4 max-w-3xl mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6" id="faria-lima">As mudanças no espaço da Faria Lima
+            </h2>
+
+            <p class="text-lg text-gray-700 italic text-justify">
+                A técnica como mediação entre o homem e a paisagem – Faria Lima em transformação
+            </p>
+            <section class="grid grid-cols-1 gap-12 px-4 mt-12 max-w-5xl mx-auto">
+
+                <!-- Bloco 1: Século XVI a XIX -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">✨ Século XVI a XIX: Território e resistência
+                        indígena</h3>
+
+                    <div class="overflow-hidden rounded-lg shadow-md mt-4">
+                        <img id="mapa-historico" src="static/images/1897-download.jpg"
+                            alt="PLANTA GERAL DA CAPITAL DE SÃO PAULO"
+                            class="cursor-grab w-full transition-transform duration-300 ease-in-out" />
+                    </div>
+
+                    <p class="text-gray-700 mt-4 mb-2">
+                        <strong>Contexto:</strong> Jesuítas chegam pelo Rio Jurubatuba (atual Pinheiros), onde várzeas e
+                        matas
+                        dominavam
+                        a paisagem.
+                    </p>
+                    <p class="text-gray-700 text-justify mb-4">
+                        <strong>Análise dialética:</strong>A chegada dos jesuítas pelo Rio Jurubatuba (Pinheiros) marca
+                        não apenas a imposição de uma ordem colonial sobre as várzeas e matas, mas o início de um
+                        processo contraditório — onde a dominação nunca se completa, pois encontra na resistência seu
+                        limite e sua negação. Como lembra Fanon (1961), os “condenados da terra” insurgem-se, recusando
+                        a redução do território a mero objeto de exploração. Se a natureza foi cercada, suas brechas
+                        permaneceram abertas: nas aldeias indígenas recalcitrantes, nos quilombos, nas periferias que
+                        hoje reinventam o espaço à margem do poder.
+                    </p>
+
+                    <p class="text-gray-700 text-justify mb-4">
+                        A São Paulo que surge desse embate é, como analisa Flávio Villaça, uma cidade esculpida por
+                        interesses — nunca neutra, sempre conflituosa. A elite, em seu êxodo segregador, abandona o
+                        centro histórico e constrói enclaves como Pinheiros e a Faria Lima, templos do capital que
+                        excluem simbolicamente quem não pertence. Mas a cidade não se deixa aprisionar: as margens
+                        pressionam, as ocupações resistem, as ruas viram trincheiras. O urbano, assim, é um campo de
+                        batalha onde a colonialidade impõe suas grades, mas onde os subalternos as arrombam, revelando
+                        que toda hegemonia é provisória.
+                    </p>
+
+                    <p class="text-gray-700 text-justify">
+                        Nesse jogo de forças, o território paulistano expõe sua ironia fundadora: quanto mais o poder
+                        tenta ordenar, mais a desordem o desafia. A cidade não é um projeto concluído, mas um rascunho
+                        em disputa — e é nessa tensão que ela, paradoxalmente, se reinventa.
+                    </p>
+
+                    <p class="text-sm text-gray-500 mt-4 italic">
+                        “Planta Geral da Capital de São Paulo” (1897). Acervo da Biblioteca Nacional Digital. Disponível
+                        em:
+                        <a href="https://bndigital.bn.gov.br" class="text-blue-600 hover:underline" target="_blank">
+                            https://bndigital.bn.gov.br
+                        </a>. Acesso em: 26 jun. 2025.
+                    </p>
+                </div>
+
+                <!-- Bloco 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">🏭 1928–1950: Retificação do Rio Pinheiros</h3>
+
+                    <div class="overflow-hidden rounded-lg shadow-md mb-4">
+                        <img src="static/images/rio-pinheiros-antes-e-depois.jpg" alt="Canalização do Rio Pinheiros"
+                            class="cursor-grab w-full transition-transform duration-300 ease-in-out" />
+                    </div>
+
+                    <p class="text-gray-700 mb-2">
+                        <strong>Transformações:</strong>
+                    <p class="text-base text-gray-700 text-justify mb-4 leading-relaxed">
+                        A canalização do rio liberou margens para ferrovias e fábricas — símbolo da <strong>subordinação
+                            da natureza à
+                            técnica</strong>, onde o espaço deixa de ser vivido e passa a ser <em>calculado</em>. Para
+                        <strong>Milton
+                            Santos</strong>, em <em>A Natureza do Espaço</em> (1996), esse processo representa a
+                        dominação da técnica
+                        como
+                        <em>sistema de objetos e ações</em>, servindo ao capital e aprofundando as desigualdades
+                        urbanas.
+                        <strong>Fernand
+                            Braudel</strong>, em <em>O Tempo do Mundo</em> (1979), já havia demonstrado como os rios,
+                        antes eixos de
+                        vida
+                        e
+                        cultura, foram reordenados para atender às dinâmicas de circulação do capitalismo moderno,
+                        transformando o
+                        tempo
+                        da natureza em tempo dos mercados. A fluidez que os rios ofereciam foi capturada por ferrovias,
+                        portos
+                        industriais
+                        e zonas fabris, num movimento que ocultou os saberes locais e impôs uma lógica linear,
+                        excludente e
+                        globalizada.
+                        Trata-se, portanto, de uma geografia funcional ao lucro, mas hostil à diversidade de usos e à
+                        justiça
+                        socioambiental.
+                    </p>
+                    </p>
+                    <p class="text-gray-700">O Estado atuou como agente da modernização autoritária, mas também pode ser
+                        reconfigurado
+                        pela ação popular.</p>
+
+                    <p class="text-sm text-gray-500 mt-4 italic">
+                        “Retificação do Rio Pinheiros.” São Paulo Antiga. Disponível em:
+                        <a href="https://saopauloantiga.com.br/rio-pinheiros/" class="text-blue-600 hover:underline"
+                            target="_blank">
+                            https://saopauloantiga.com.br/rio-pinheiros/
+                        </a>. Acesso em: 26 jun. 2025.
+                    </p>
+                </div>
+
+
+
+                <section class="prose lg:prose-xl max-w-4xl mx-auto px-4 py-6 text-justify text-gray-800">
+                    <p><strong>SANTOS, Milton.</strong> <em>A natureza do espaço: técnica e tempo, razão e emoção.</em>
+                        São Paulo:
+                        Hucitec, 1996. Nesta obra, o autor explica que a <strong>técnica</strong> é o conjunto de meios
+                        disponíveis, o
+                        <strong>tempo</strong> é o momento histórico, e o <strong>espaço</strong> é a materialidade do
+                        território e
+                        sua
+                        organização.
+                    </p>
+
+                    <section class="prose lg:prose-xl max-w-4xl mx-auto px-4 py-8">
+                        <h1 class="text-3xl font-bold mb-4">A Crítica Rasa à Técnica e a Proposta da Tecnocracia
+                            Funcional</h1>
+
+                        <p class="mb-4 text-justify text-gray-700 leading-relaxed">
+                            Muitos autores contemporâneos têm denunciado que as críticas atuais à técnica permanecem
+                            limitadas aos
+                            planos
+                            <strong>ético</strong>, <strong>psicológico</strong> ou <strong>funcional</strong>,
+                            ignorando suas
+                            determinações
+                            <strong>estruturais, econômicas e políticas</strong>. Tais críticas, embora pertinentes,
+                            tendem a isolar os
+                            efeitos das tecnologias sem interrogá-las como parte de um processo histórico mais amplo e
+                            contraditório.
+                            Neste cenário, emerge — como necessidade teórica diante das próprias contradições observadas
+                            — a categoria
+                            <strong>tecnocracia funcional</strong>.
+                        </p>
+
+                        <p class="mb-4 text-justify text-gray-700 leading-relaxed">
+                            Importa destacar, no entanto, que não estamos diante de uma definição rígida ou de um
+                            conceito fixado. A
+                            proposta da <strong>tecnocracia funcional</strong> não busca encerrar ou rotular o fenômeno,
+                            mas nomear uma
+                            tendência observável que se desenvolve no interior das próprias contradições entre técnica e
+                            trabalho. Esta
+                            categoria não parte de um esquema prévio; ela surge como <em>resposta metodológica à
+                                realidade</em>, como
+                            tentativa de compreender um movimento real que se dá no espaço e no tempo.
+                        </p>
+
+                        <p class="mb-4 text-justify text-gray-700 leading-relaxed">
+                            O leitor não deve se fixar na literalidade do termo, nem reduzir o debate à questão
+                            semântica. O essencial
+                            aqui não é <em>decorar nomes</em>, mas compreender os processos. A categoria em questão foi
+                            criada para
+                            descrever uma lógica operacional — não para estabelecer uma verdade absoluta. A tecnocracia
+                            funcional, nesse
+                            sentido, é expressão de um esforço analítico para interpretar como a técnica, muitas vezes
+                            disfarçada de
+                            neutralidade, opera dentro de estruturas que a instrumentalizam em favor da acumulação e da
+                            racionalização
+                            desigual da vida urbana.
+                        </p>
+
+                        <p class="mb-4 text-justify text-gray-700 leading-relaxed">
+                            Assim, ao invés de rejeitar a técnica ou glorificá-la, propomos colocá-la no centro de uma
+                            crítica situada.
+                            Entendê-la como campo de disputa, onde forças emancipadoras e forças opressoras se
+                            confrontam — um terreno
+                            em
+                            que se decide não apenas o futuro das cidades, mas também o sentido da própria humanidade em
+                            sua relação com
+                            o
+                            espaço e com o outro. A <strong>tecnocracia funcional</strong> não é um ponto de chegada,
+                            mas um ponto de
+                            partida para pensar as tensões entre técnica, política e transformação social.
+                        </p>
+                    </section>
+                    <section class="max-w-6xl mx-auto px-4 py-10">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">📚 Autores e Críticas Fundamentais</h2>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Nildo Viana -->
+                            <div class="bg-white border-l-4 border-red-500 shadow p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Nildo Viana (2018)</h3>
+                                <p class="text-gray-700 mb-2"><em>O Fetichismo da Técnica</em></p>
+                                <p class="text-gray-700 text-justify">Aponta que a técnica moderna é naturalizada como
+                                    força autônoma,
+                                    ocultando seu vínculo com o capital. Sua crítica está inserida no esforço dialético
+                                    de revelar o
+                                    conteúdo
+                                    de classe da técnica.</p>
+                                <blockquote class="border-l-4 border-red-300 pl-4 italic text-gray-600 mt-2">
+                                    "A técnica é apresentada como autônoma, como força externa, ocultando seu conteúdo
+                                    de classe e sua
+                                    vinculação estrutural ao capital." (p. 73)
+                                </blockquote>
+                            </div>
+
+                            <!-- Byung-Chul Han -->
+                            <div class="bg-white border-l-4 border-blue-500 shadow p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Byung-Chul Han (2014)</h3>
+                                <p class="text-gray-700 mb-2"><em>No Enxame</em></p>
+                                <p class="text-gray-700 text-justify">Critica a perda da negatividade da crítica e a
+                                    transformação da
+                                    técnica digital em superfície de exposição. Sua análise é parte de um processo que
+                                    busca repensar a
+                                    crítica em tempos de saturação informacional.</p>
+                                <blockquote class="border-l-4 border-blue-300 pl-4 italic text-gray-600 mt-2">
+                                    "A crítica perdeu sua negatividade. Tudo se transforma em positividade de dados,
+                                    likes e exposição." (p.
+                                    20)
+                                </blockquote>
+                            </div>
+
+                            <!-- Andrew Feenberg -->
+                            <div class="bg-white border-l-4 border-green-500 shadow p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Andrew Feenberg (2008)</h3>
+                                <p class="text-gray-700 mb-2"><em>Between Reason and Experience</em></p>
+                                <p class="text-gray-700 text-justify">Recusa a neutralidade da técnica e propõe sua
+                                    politização. Contribui
+                                    com a ideia de que a técnica é campo de disputa, não objeto passivo ou fatalidade
+                                    histórica.</p>
+                                <blockquote class="border-l-4 border-green-300 pl-4 italic text-gray-600 mt-2">
+                                    "A tecnologia carrega valores sociais e políticos. Precisamos politizar seu
+                                    desenvolvimento." (p. 34)
+                                </blockquote>
+                            </div>
+
+                            <!-- Evgeny Morozov -->
+                            <div class="bg-white border-l-4 border-yellow-500 shadow p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Evgeny Morozov (2013)</h3>
+                                <p class="text-gray-700 mb-2"><em>To Save Everything, Click Here</em></p>
+                                <p class="text-gray-700 text-justify">Critica o solucionismo tecnológico que propõe
+                                    soluções técnicas para
+                                    problemas estruturais. A crítica participa do processo dialético que recusa
+                                    respostas fáceis para
+                                    questões
+                                    complexas.</p>
+                                <blockquote class="border-l-4 border-yellow-300 pl-4 italic text-gray-600 mt-2">
+                                    "O solucionismo ignora as estruturas sociais, oferecendo ferramentas técnicas para
+                                    problemas políticos."
+                                    (p. 19)
+                                </blockquote>
+                            </div>
+
+                            <!-- Herbert Marcuse -->
+                            <div class="bg-white border-l-4 border-purple-500 shadow p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Herbert Marcuse (1964)</h3>
+                                <p class="text-gray-700 mb-2"><em>O Homem Unidimensional</em></p>
+                                <p class="text-gray-700 text-justify">Mostra como a racionalidade tecnológica sob o
+                                    capitalismo avança
+                                    como
+                                    forma de conformismo e repressão. Sua obra resgata o potencial crítico da técnica ao
+                                    inseri-la na
+                                    totalidade histórica.</p>
+                                <blockquote class="border-l-4 border-purple-300 pl-4 italic text-gray-600 mt-2">
+                                    "A racionalidade tecnológica se torna instrumento de dominação e repressão sob a
+                                    aparência de
+                                    liberdade."
+                                    (p. 21)
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 bg-yellow-50 p-8 rounded-xl shadow-md border-l-4 border-yellow-600">
+                            <h2 class="text-2xl font-bold text-yellow-900 mb-4">🛠 Tecnocracia Funcional: Uma Categoria
+                                em Movimento
+                            </h2>
+                            <p class="text-gray-800 text-justify leading-relaxed mb-4">
+                                A <strong>tecnocracia funcional</strong> não é apresentada aqui como conceito fixo ou
+                                categoria
+                                definitiva,
+                                mas como resultado de um movimento dialético que emerge das contradições internas do
+                                fenômeno técnico. Seu
+                                objetivo é iluminar processos sociais reais, e não cristalizar significados.
+                            </p>
+                            <p class="text-gray-800 text-justify leading-relaxed mb-4">
+                                Trata-se de uma tentativa provisória de nomear uma realidade vivida: a dissociação entre
+                                crítica
+                                discursiva
+                                e ação concreta, especialmente no que tange à condição dos trabalhadores precarizados. O
+                                foco não está na
+                                nomenclatura em si, mas na compreensão do processo histórico e material que ela busca
+                                expressar.
+                            </p>
+                            <p class="text-gray-800 text-justify leading-relaxed mb-4">
+                                O exemplo dos <strong>motoboys</strong> é revelador: circulando entre os circuitos
+                                superiores
+                                (financeiros)
+                                e inferiores (logística precária), esses sujeitos vivem as contradições espaciais e
+                                técnicas de forma
+                                intensiva. A criação de <strong>bolsões de estacionamento</strong> é uma resposta
+                                técnica à margem da
+                                transformação estrutural. Enquanto isso, parte da crítica permanece em esfera retórica.
+                            </p>
+                            <p class="text-gray-800 text-justify leading-relaxed mb-4">
+                                A tecnocracia funcional sugere uma crítica que se reorganize em direção à
+                                <strong>materialidade</strong>:
+                                crítica territorializada, incorporada aos fluxos do cotidiano, e capaz de ser apropriada
+                                por quem mais
+                                sofre
+                                os efeitos da técnica subordinada ao capital.
+                            </p>
+                            <p class="italic text-gray-600">
+                                Não se trata da técnica em si, mas das relações sociais que a produzem, a moldam e a
+                                utilizam. O nome é
+                                apenas uma ferramenta — o que importa é o movimento.
+                            </p>
+                        </div>
+                    </section>
+
+
+                    <!-- Os blocos seguintes continuam no mesmo estilo dialético e progressivo... -->
+
+                    <!-- Bloco 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">📈 1995: Operação Urbana Faria Lima</h3>
+
+                        <div class="overflow-hidden rounded-lg shadow-md mb-4">
+                            <img src="static/images/1995.jpg" alt="Imagem da Operação Urbana Faria Lima"
+                                class="cursor-grab w-full transition-transform duration-300 ease-in-out" />
+                        </div>
+
+                        <div class="text-gray-700 text-justify space-y-4">
+                            <p>
+                                A partir de 1995, com a formalização da Operação Urbana Faria Lima, o que era tendência
+                                tornou-se
+                                estrutura.
+                                Os <em>CEPACs</em>, Certificados de Potencial Adicional de Construção, representam mais
+                                que um instrumento
+                                técnico: são a materialização do solo como ativo, da cidade como planilha, da política
+                                urbana como
+                                algoritmo. A valorização do espaço não responde à necessidade, mas à demanda do capital.
+                            </p>
+
+                            <p>
+                                <strong>Mariana Fix</strong> (2011) interpreta esse movimento como uma aliança
+                                consolidada entre Estado e
+                                agentes financeiros. A cidade, nesse arranjo, é reorganizada para atender a
+                                racionalidades corporativas, e
+                                a
+                                Faria Lima se torna seu laboratório. Trata-se de uma tecnocracia funcional: a operação
+                                urbana não debate o
+                                urbano — ela o executa, segundo critérios de performance e rentabilidade.
+                            </p>
+
+                            <p>
+                                <strong>Raquel Rolnik</strong> (2015) insiste que não se trata apenas de arquitetura ou
+                                mobilidade: é uma
+                                nova gramática do urbano. Nela, a moradia, o transporte, o espaço e a paisagem
+                                convertem-se em suporte
+                                para
+                                extração de valor. A multipolarização urbana, aqui, se desloca — não mais apenas entre
+                                polos fragmentados,
+                                mas entre formas antagônicas de vida. Não se trata apenas de enclaves: são mundos
+                                distintos, coexistentes
+                                e
+                                inconciliáveis.
+                            </p>
+
+                            <div class="bg-gray-50 border-l-4 border-gray-400 p-4 rounded text-gray-800">
+                                <h3 class="font-semibold mb-2">Multipolarização Urbana e Pontos de Contato: Um Diálogo
+                                    Dialético</h3>
+                                <p>
+                                    A categoria de <strong>multipolarização urbana</strong> não substitui a noção de
+                                    <strong>pontos de
+                                        contato</strong>, formulada por <em>Milton Santos</em>, mas a tensiona. Aquilo
+                                    que antes podia ser
+                                    entendido como fricção produtiva entre o circuito superior e inferior transforma-se,
+                                    nesse novo
+                                    contexto,
+                                    em separação radical. A fragmentação não elimina o contato — mas o converte em zona
+                                    de conflito
+                                    permanente.
+                                </p>
+                                <p>
+                                    O espaço urbano, então, torna-se um campo de forças. Cada polo busca sua
+                                    autorreferência, mas depende da
+                                    reprodução do outro para manter-se. A multipolarização é, assim, efeito e sintoma: é
+                                    resultado da lógica
+                                    financeira, mas também campo de disputa. O urbano, enquanto mediação entre global e
+                                    local, torna-se
+                                    palco
+                                    de antagonismos cada vez mais explícitos.
+                                </p>
+                            </div>
+
+                            <p>
+                                O Estado, nesse arranjo, ora atua como facilitador, ora como obstáculo. Seu papel já não
+                                é apenas técnico
+                                ou
+                                neutro — ele é disputado. E se as ferramentas da financeirização urbana operam com
+                                eficácia matemática,
+                                também abrem brechas para insurgências. Como lembra <strong>Milton Santos</strong>, o
+                                espaço não é apenas
+                                produto, mas condição de possibilidade da transformação.
+                            </p>
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-4 italic">
+                            GIESBRECHT, Alexandre. Obra do próprio autor. Abril de 1995.
+                        </p>
+                    </div>
+
+                    <!-- Bloco 5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">⚖️ 2000–2010: Financeirização</h3>
+
+                        <div class="overflow-hidden rounded-lg shadow-md mb-4">
+                            <img src="static/images/banco.jpg" alt="Financeirização na Faria Lima"
+                                class="cursor-grab w-full transition-transform duration-300 ease-in-out" />
+                        </div>
+
+                        <div class="text-gray-700 text-justify space-y-4">
+                            <p>
+                                Entre 2000 e 2010, a Faria Lima não apenas consolida sua condição como enclave
+                                corporativo: torna-se, ela
+                                mesma, uma operação lógica do capital. Já não se trata apenas de extrair valor do
+                                espaço, mas de organizar
+                                o
+                                espaço conforme as exigências da valorização financeira. Os edifícios, os fluxos, os
+                                corpos: tudo se
+                                reconfigura segundo essa racionalidade.
+                            </p>
+
+                            <p>
+                                <strong>Raquel Rolnik</strong> (2015) expõe que essa racionalidade cria uma cidade
+                                administrada como
+                                carteira de ativos. <strong>Natacha Mazzitelli</strong> e o <strong>Observatório das
+                                    Metrópoles</strong>
+                                evidenciam que essa lógica não é neutra: ela concentra recursos, expulsa populações e
+                                estrutura
+                                desigualdades. Os polos de poder são, também, polos de desconexão do urbano vivido.
+                            </p>
+
+                            <blockquote class="bg-yellow-100 border-l-4 border-yellow-500 p-4 italic text-sm">
+                                “Não estamos mais falando apenas de desigualdade espacial, mas de uma nova arquitetura
+                                da exclusão.”<br>
+                                — MAZZITELLI et al., 2018
+                            </blockquote>
+
+                            <p>
+                                <strong>Milton Santos</strong> ainda oferece os pontos de contato como chave
+                                interpretativa, mas o que se
+                                evidencia nessa década é que o contato se converte em tensão irreconciliável. A
+                                <strong>multipolarização
+                                    urbana total</strong> surge não como conceito novo, mas como resultado inevitável.
+                                Os polos não dialogam
+                                —
+                                competem, isolam-se, repelem-se. O urbano é rearranjado como mosaico funcional.
+                            </p>
+
+                            <div
+                                class="bg-blue-100 border-l-4 border-blue-500 p-4 rounded-xl leading-relaxed text-gray-800">
+                                ✳️ <strong>Multipolarização urbana total:</strong> nesse cenário, já não basta falar em
+                                fragmentação. O
+                                espaço urbano torna-se laboratório de algoritmos, tecnocracias e vigilâncias. Cada polo
+                                é
+                                hiperracionalizado
+                                e hiperconectado, enquanto zonas inteiras permanecem relegadas à informalidade. O
+                                conflito deixa de ser
+                                episódico: torna-se estrutural.
+
+                                <br><br>
+
+                                O que emerge é a cidade como simulação — aparente integração via mobilidade e
+                                conectividade, mas real
+                                ruptura entre modos de vida. A <strong>tecnocracia funcional</strong>, ao gerir a cidade
+                                como empresa,
+                                oculta os conflitos sob métricas. Mas os corpos excluídos irrompem.
+
+                                <br><br>
+
+                                A crítica dialética, neste ponto, não propõe substituições conceituais, mas
+                                desvelamentos históricos. A
+                                Faria Lima não é exceção: ela é a fórmula. E, como fórmula, pode ser revertida.
+                            </div>
+
+                            <p>
+                                As manifestações de populações periféricas, negras, indígenas e de mulheres não são
+                                epifenômenos. Elas se
+                                ligam organicamente ao esgotamento do modelo tecnocrático-financeiro. A crítica às
+                                leituras identitárias
+                                despolitizadas não nega as diferenças: revela que sua origem está na materialidade dos
+                                territórios. A
+                                política, convertida em espetáculo, mascara a luta por justiça urbana.
+                            </p>
+
+                            <p>
+                                A <strong>multipolarização urbana total</strong> escancara, portanto, a falência de uma
+                                cidade
+                                administrada
+                                por indicadores. A resistência surge como prática territorial. Não se trata de mera
+                                denúncia — mas de
+                                construção de outra gramática para o urbano. A Faria Lima, enquanto símbolo, torna-se
+                                também campo
+                                estratégico para sua superação.
+                            </p>
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-4 italic">
+                            GONÇALVES, João Fellet. “A avenida que virou símbolo da desigualdade e ‘Vale do Silício
+                            brasileiro’”. BBC
+                            News
+                            Brasil, 5 mar. 2020. Disponível em:
+                            <a href="https://www.bbc.com/portuguese/brasil-51742666"
+                                class="text-blue-600 hover:underline" target="_blank">
+                                https://www.bbc.com/portuguese/brasil-51742666
+                            </a>. Acesso em: 26 jun. 2025.
+                        </p>
+                    </div>
+                    <!-- Bloco 6 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">🌐 2010–Hoje: "Vale do Silício Brasileiro"?
+                        </h3>
+
+                        <div class="overflow-hidden rounded-lg shadow-md mb-4">
+                            <img src="static/images/tecnologia.jpg" alt="Empresas de tecnologia na Faria Lima"
+                                class="cursor-grab w-full transition-transform duration-300 ease-in-out" />
+                        </div>
+
+                        <div class="text-gray-700 text-justify space-y-4">
+                            <p>
+                                De 2010 até o presente, o que se vê na Faria Lima não é apenas a ascensão de um centro
+                                financeiro, mas a
+                                incorporação definitiva da lógica da tecnocracia funcional em todas as dimensões da vida
+                                urbana. A
+                                expressão
+                                "Vale do Silício Brasileiro" não representa uma metáfora otimista, mas a tradução
+                                concreta de um
+                                território
+                                moldado por algoritmos, métricas e plataformas. Trata-se da financeirização elevada à
+                                sua forma
+                                tecnodigital.
+                            </p>
+
+                            <p>
+                                A <strong>multipolarização urbana total</strong> não emerge como um estágio final, mas
+                                como aceleração
+                                dialética das tensões entre os mundos que coabitam a cidade. Se <em>pontos de
+                                    contato</em> foram, no
+                                passado, arenas provisórias entre circuitos superiores e inferiores, hoje eles se
+                                multiplicam sem
+                                dissolver
+                                o abismo — pelo contrário: tornam-se zonas intensificadas de fricção, onde o contraste
+                                entre precariedade
+                                e
+                                glamour se dá face a face.
+                            </p>
+
+                            <p>
+                                <strong>Raquel Rolnik</strong> (2015) afirma que o espaço urbano tornou-se objeto de
+                                disputa simbólica e
+                                material. Mas essa disputa se transformou: ela já não se dá apenas entre setores
+                                sociais, mas entre
+                                racionalidades. A tecnocracia funcional, com sua linguagem neutra, sofisticada e
+                                excludente, tenta
+                                domesticar o espaço e regular os fluxos da vida. Mas do outro lado da equação, há vida
+                                pulsando:
+                                movimentos
+                                sociais, ocupações, corpos dissidentes, culturas subalternizadas.
+                            </p>
+
+                            <p>
+                                Os dados do IBGE (2022) e da Pnad Contínua (2023), que revelam o crescimento da
+                                escolarização e da renda
+                                de
+                                mulheres e jovens negros, não indicam apenas avanços estatísticos. Eles revelam
+                                fissuras. Mostram que a
+                                cidade algoritmizada falha em conter os desejos de presença, os corpos que exigem espaço
+                                e visibilidade. A
+                                cidade se torna, por isso, palco de reinvenções cotidianas e práticas insurgentes.
+                            </p>
+
+                            <div
+                                class="bg-blue-100 border-l-4 border-blue-500 p-4 rounded-xl leading-relaxed text-gray-800">
+                                ✳️ <strong>Multipolarização urbana total:</strong> aqui, os polos não são mais apenas
+                                econômicos ou
+                                espaciais — são também ontológicos. A cidade não é mais somente fragmentada: ela é
+                                ontologicamente
+                                tensionada. A Faria Lima convive com territórios que não apenas resistem, mas produzem
+                                outras formas de
+                                tempo, linguagem e futuro. Cada ponto de contato torna-se, nesse sentido, uma
+                                possibilidade insurgente —
+                                mas
+                                também uma zona de intensificação da dominação.
+
+                                <br><br>
+
+                                A tecnocracia funcional tenta estabilizar a cidade pela via da performance, mas encontra
+                                resistência onde
+                                menos espera: na arte de rua, na denúncia periférica, na ocupação simbólica e real de
+                                espaços antes
+                                interditados. O espaço, como dizia <strong>Milton Santos</strong>, é lugar de
+                                possibilidade. E as
+                                possibilidades brotam não da norma, mas da exceção.
+                            </div>
+
+                            <p>
+                                Se a política institucional falha em reconhecer essa nova gramática urbana, os corpos
+                                organizados produzem
+                                linguagem própria. Não se trata mais de "dar voz", mas de ouvir o que já é grito. O
+                                desafio da crítica
+                                urbana, hoje, é captar a cidade para além de seus manuais e legislações. A
+                                <strong>multipolarização urbana
+                                    total</strong> convida, nesse sentido, a uma radical escuta territorial.
+                            </p>
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-4 italic">
+                            MONEY TIMES. Relógio de rua na Faria Lima terá “calls” de mercado do Itaú BBA. Por Diana
+                            Cheng. São Paulo,
+                            28
+                            jan. 2020. Disponível em:
+                            <a href="https://www.moneytimes.com.br/itau-e-jcdecaux-instalam-primeiro-relogio-de-rua-4k-no-brasil/"
+                                class="text-blue-600 hover:underline" target="_blank">
+                                https://www.moneytimes.com.br/itau-e-jcdecaux-instalam-primeiro-relogio-de-rua-4k-no-brasil/
+                            </a>. Acesso em: 26 jun. 2025.
+                        </p>
+                    </div>
+
+                    <!-- Bloco 7 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🔮 Futuro e Esperança</h3>
+
+                        <div class="overflow-hidden rounded-lg shadow-md mb-4">
+                            <img src="static/images/sonho.jpg" alt="Imagem simbólica do sonho e da transformação urbana"
+                                class="cursor-grab w-full transition-transform duration-300 ease-in-out" />
+                        </div>
+
+                        <section class="max-w-4xl mx-auto px-4 py-8">
+                            <h2 class="text-2xl font-bold text-center text-indigo-700 mb-8">
+                                Multipolarização Urbana Total da Consciência
+                            </h2>
+
+                            <div class="prose lg:prose-lg text-justify text-gray-800 leading-relaxed space-y-6">
+                                <p><strong>Propostas:</strong> ocupar o Estado, descentralizar a técnica, reencantar o
+                                    Rio Pinheiros com
+                                    participação popular. A frase “O sonho obriga o homem a pensar” não pertence a
+                                    Milton Santos, mas sua
+                                    não
+                                    autoria não impede que a usemos para afirmar o que ele exigia: o compromisso com a
+                                    realidade como
+                                    construção.</p>
+
+                                <p>Em favelas e ocupações, a dualidade urbana revela-se visceral: uma cidade oficial e
+                                    regulada para
+                                    poucos,
+                                    e uma cidade expandida, desprovida de regulação, para muitos. <strong>Raquel
+                                        Rolnik</strong> (2015)
+                                    explicita essa contradição, que Milton Santos já havia traduzido pela lógica dos
+                                    circuitos — superior e
+                                    inferior — como constitutivos e interdependentes.</p>
+
+                                <p>A politização cotidiana salta aos olhos: nomes do STF circulam entre motoboys,
+                                    debates sobre o
+                                    Judiciário
+                                    emergem em padarias, e a técnica estatal é decodificada em vozes populares. Mas a
+                                    urbanização — seus
+                                    termos, suas violências, seus pactos — ainda permanece ausente da crítica popular.
+                                </p>
+
+                                <p>Geógrafos, urbanistas, arquitetos, talvez falharam. Ou foram cooptados. <strong>David
+                                        Harvey</strong>
+                                    (2005) denuncia a tecnocracia funcional como forma de silenciamento político do
+                                    espaço. <strong>Mike
+                                        Davis</strong> (2006) ecoa: a informalidade urbana é destino imposto por um
+                                    planejamento surdo.</p>
+
+                                <p>Nesse contexto, surge a <strong class="text-indigo-600">multipolarização urbana total
+                                        da
+                                        consciência</strong>: não como slogan, mas como forma dialética de reorganizar a
+                                    própria produção do
+                                    espaço. É categoria e é ação. Tática e estratégia. Presente em ONGs, posts,
+                                    campanhas, budgets,
+                                    tribunais,
+                                    assembleias e ocupações. É onde o espaço da Faria Lima — físico e simbólico — é
+                                    reapropriado por uma
+                                    práxis popular complexa.</p>
+
+                                <p>Não se trata de integrar os circuitos — isso seria apenas modernizar a opressão.
+                                    Trata-se de
+                                    desestabilizá-los, reterritorializar a cidade como projeto ético. A
+                                    <strong>multipolarização urbana
+                                        total
+                                        da consciência</strong> é o nome disso: do inconformismo que toma forma e se
+                                    organiza, do saber que
+                                    desce das torres e encontra as ruas, do algoritmo que falha diante do grito.
+                                </p>
+
+                                <p>Não é utopia. É reorganização. É a cidade se refazendo a partir da luta.</p>
+                            </div>
+                        </section>
+
+                        <p class="text-sm text-gray-500 italic">
+                            MIRAGLIA, Eliane. “O sonho obriga o homem a pensar (não fui eu quem disse isso...)”.
+                            Blogspot, 2012.
+                            Disponível em:
+                            <a href="https://elianemiraglia.blogspot.com/2012/09/o-sonho-obriga-o-homem-pensar-nao-fui.html"
+                                class="text-blue-600 hover:underline" target="_blank">
+                                https://elianemiraglia.blogspot.com/2012/09/o-sonho-obriga-o-homem-pensar-nao-fui.html
+                            </a>. Acesso em: 26 jun. 2025.
+                        </p>
+                    </div>
+
+                    <!-- Panzoom CDN -->
+                    <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+
+                    <!-- Script Panzoom para todas as imagens -->
+                    <script>
+                        window.addEventListener('DOMContentLoaded', () => {
+                            const zoomTargets = document.querySelectorAll('img');
+                            zoomTargets.forEach(img => {
+                                const panzoom = Panzoom(img, {
+                                    maxScale: 4,
+                                    minScale: 1,
+                                    contain: 'outside',
+                                    startScale: 1
+                                });
+                                img.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+                                img.addEventListener('pointerdown', () => img.style.cursor = 'grabbing');
+                                img.addEventListener('pointerup', () => img.style.cursor = 'grab');
+                            });
+                        });
+                    </script>
+
+
+
+                    <footer class="mt-16 text-center text-gray-400 text-sm py-6 border-t border-gray-200">
+                        &copy; 2025 - Projeto Milton Santos - Circuitos Econômicos
+                    </footer>

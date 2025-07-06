@@ -33,6 +33,44 @@ def homepage():
     variacoes=PrecoM2.query.all()
     return render_template('index.html',variacoes=variacoes)
 
+@app.route('/linha_tempo')
+def linha_tempo():
+    return render_template('linha_tempo.html')
+
+@app.route('/faria_Lima')
+def faria_lima():
+    return render_template('faria_lima.html')
+
+@app.route('/plano_diretor')
+def plano_diretor():
+    return render_template('plano_diretor.html')
+
+@app.route('/tecnologia')
+def tecnologia():
+    return render_template('tecnologia.html')
+
+@app.route('/capital_simbolico')
+def capital_simbolico():
+    return render_template('capital_simbolico.html')
+
+@app.route('/circuito_financeiro')
+def circuito_financeiro():
+    m2 = request.args.get("m2")
+    if m2 is None:
+        # Aqui você pode definir um valor padrão, ou retornar um erro, ou redirecionar
+        # Exemplo: valor padrão
+        m2_float = 0.0
+    else:
+        try:
+            m2_float = float(m2)
+        except ValueError:
+            return "Parâmetro m2 inválido", 400
+
+    return render_template('circuito_financeiro.html', m2=m2_float)
+
+
+
+
 @app.route('/api/dados_completos')
 def dados_completos():
     circuitos = {}
